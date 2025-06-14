@@ -1,0 +1,30 @@
+
+Azure Synapse Data Pipeline - Part 2: CSV Transformation & Flattening
+
+Overview:
+In this stage of the project, the raw JSON data extracted from a REST API (and stored in Azure Data Lake Storage in Part 1) was transformed into a clean CSV format for further analysis. This phase required minimal code, as much of the work was done using the Synapse Pipeline GUI and visual tools.
+
+Key Actions Performed:
+
+1. Pipeline for JSON to CSV Transformation:
+   - Used Azure Synapse Data Flow to ingest JSON files from the ADLS 'raw' folder.
+   - Applied schema mapping to align JSON keys to flat tabular columns.
+   - Used a "Flatten" transformation step to ensure nested structures (if any) are normalized.
+   - Output the transformed dataset as a CSV file into the 'cleaned' or 'processed' container in ADLS.
+
+2. Why Flatten JSON?
+   - JSON data is hierarchical by nature.
+   - For analytical processing, reporting, and integration with SQL, a flat tabular structure is required.
+   - Flattening ensures that nested elements (like objects or arrays) are expanded into columns.
+
+3. Output:
+   - The final CSV contains fields like `datetime`, `open`, `high`, `low`, `close`, and `volume`.
+   - This format is now queryable using Serverless SQL in Part 3.
+
+Screenshots (to be attached manually):
+- Screenshot 1: Pipeline Overview in Synapse Studio (image: pipeline_overview)
+- Screenshot 2: Flatten Transformation Step (image: flatten_step.)
+
+Note:
+No Python or script code was used in this part. The entire process was implemented visually using Synapse Studio Pipelines and Data Flows.
+
