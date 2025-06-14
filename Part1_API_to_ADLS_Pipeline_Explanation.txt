@@ -1,0 +1,33 @@
+
+Azure Synapse Data Pipeline - Part 1: API to Azure Data Lake Storage (ADLS)
+
+Overview:
+This phase covers the creation of a Synapse Pipeline to extract data from a REST API and store it in Azure Data Lake Storage (ADLS). The pipeline was visually designed in Synapse Studio and required no custom Python or external integration.
+
+Key Actions Performed:
+
+1. Pipeline Design in Synapse Studio:
+   - Used the built-in **Copy Data** activity within Synapse Pipelines.
+   - Defined a **REST API linked service** to connect to the data source (e.g., a stock price API).
+   - Configured **API pagination settings** if needed to handle large datasets.
+
+2. Dataset Configuration:
+   - Created a dataset for the REST source to read JSON data.
+   - Configured a destination dataset to point to a folder inside the ADLS container (e.g., 'raw').
+   - Set the output format as JSON while storing to ADLS.
+
+3. Data Flow and Trigger:
+   - Ensured proper mapping between source (API) fields and destination (ADLS path).
+   - Tested pipeline using **Debug** option and then published.
+   - Used a manual or scheduled **Trigger** to run the pipeline.
+
+4. Output:
+   - JSON file saved in the specified ADLS folder (e.g., `/raw/folder/part-0000x.json`).
+   - File contains multiple rows of structured stock price data in JSON format.
+
+Screenshots (to be attached manually):
+- Screenshot 1: Synapse Studio - REST API to ADLS Pipeline Design (image: api_to_adls_pipeline)
+
+Note:
+This part of the project established the foundation by automating ingestion of real-time data into Azure’s storage layer.
+
